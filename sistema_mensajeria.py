@@ -5,12 +5,12 @@ class Contactos:
         self.nombre = nombre
         self.telefono = telefono
 
-    def verificar_contactos(self, contacto):
+    def verificar_contactos(self):
         while True:
-            if contacto.nombre.isalpha() == False or len(contacto.nombre) < 1 and len(contacto.nombre) > 10:
+            if self.nombre.isalpha() == False or len(self.nombre) < 1 and len(self.nombre) > 10:
                 print("Los nombres deben componerse solo de letras con un mínimo de 2 y un máximo de 10 carácteres")
                 break
-            elif contacto.telefono.isdigit() == False or len(contacto.telefono) != 9:
+            elif self.telefono.isdigit() == False or len(self.telefono) != 9:
                 print("Los teléfonos deben componerse de una secuencia de 9 dígitos")
                 break
             else:
@@ -76,7 +76,7 @@ def main():
             case "añadir":
                 validacion = False
                 contacto = Contactos(input("Nombre: "), input("Teléfono: "))
-                validacion = contacto.verificar_contactos(contacto)
+                validacion = contacto.verificar_contactos()
                 if validacion == True:
                     agendar.añadir_contacto(contacto)
 
