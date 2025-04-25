@@ -43,19 +43,15 @@ class Agenda:
                 return False
             
     def editar_contacto(self, contacto):
-        while True:
-            edicion = input("Editar nombre, teléfono o ambos: ")
-            if edicion == "nombre":
-                self.lista_contactos[contacto].nombre = input("Escribe el nuevo nombre: ")
-                break
-            elif edicion == "teléfono":
-                self.lista_contactos[contacto].telefono = input("Escribe el nuevo teléfono: ")
-                break
-            elif edicion == "ambos":
-                self.lista_contactos[contacto] = Contactos(input("Nombre: "), input("Teléfono: "))
-                break
-            else:
-                print("Comando invalido, por favor escriba una de las opciones.")
+        edicion = input("Editar nombre, teléfono o ambos: ")
+        if edicion == "nombre":
+            self.lista_contactos[contacto].nombre = input("Escribe el nuevo nombre: ")
+        elif edicion == "teléfono":
+            self.lista_contactos[contacto].telefono = input("Escribe el nuevo teléfono: ")
+        elif edicion == "ambos":
+            self.lista_contactos[contacto] = Contactos(input("Nombre: "), input("Teléfono: "))
+        else:
+            print("Comando invalido, por favor escriba una de las opciones.")
             
     def eliminar_contacto(self, eleccion):
         self.lista_contactos.pop(eleccion)
@@ -91,7 +87,7 @@ def main():
             case "editar":
                 cantidad = agendar.mostrar_lista()
                 eleccion = int(input("¿Que contacto quieres editar? Pon su posición en la lista: "))
-                if eleccion < cantidad:
+                if eleccion <= cantidad:
                     agendar.editar_contacto(eleccion - 1)
 
             case "eliminar":
