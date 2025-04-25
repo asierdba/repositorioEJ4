@@ -6,15 +6,13 @@ class Contactos:
         self.telefono = telefono
 
     def verificar_contactos(self):
-        while True:
-            if self.nombre.isalpha() == False or len(self.nombre) < 1 and len(self.nombre) > 10:
-                print("Los nombres deben componerse solo de letras con un mínimo de 2 y un máximo de 10 carácteres")
-                break
-            elif self.telefono.isdigit() == False or len(self.telefono) != 9:
-                print("Los teléfonos deben componerse de una secuencia de 9 dígitos")
-                break
-            else:
-                return True
+        if not self.nombre.isalpha() or not (2 <= len(self.nombre) <= 10):
+            print("Los nombres deben componerse solo de letras con un mínimo de 2 y un máximo de 10 carácteres")
+            return False
+        if not self.telefono.isdigit() or len(self.telefono) != 9:
+            print("Los teléfonos deben componerse de una secuencia de 9 dígitos")
+            return False
+        return True
                 
 
 class Agenda:
