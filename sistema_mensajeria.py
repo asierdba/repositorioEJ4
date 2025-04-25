@@ -39,8 +39,7 @@ class Agenda:
             elif contacto.telefono == persona:
                 print(f"¡El número {persona} está en la lista de contactos!")
                 return True
-            else:
-                return False
+            return False
             
     def editar_contacto(self, contacto):
         edicion = input("Editar nombre, teléfono o ambos: ")
@@ -78,7 +77,6 @@ def main():
                 agendar.mostrar_lista()
 
             case "buscar":
-                comprobacion = False
                 persona = input("¿Qué contacto quieres buscar?, escribe su nombre o número: ")
                 comprobacion = agendar.buscar_contacto(persona)
                 if comprobacion == False:
